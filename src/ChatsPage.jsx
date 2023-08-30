@@ -1,12 +1,11 @@
-import {MultiChatSocket, MultiChatWindow, useMultiChatLogic} from "react-chat-engine-advanced"
+/* eslint-disable react/prop-types */
+// import {MultiChatSocket, MultiChatWindow, useMultiChatLogic} from "react-chat-engine-advanced"
+import { PrettyChatWindow } from 'react-chat-engine-pretty'
 
 const ChatsPage = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const chatProps = useMultiChatLogic(import.meta.env.VITE_REACT_PROJECT_ID, props.user.username, props.user.secret);
   return (
     <div style={{height: '100vh'}}>
-        <MultiChatSocket {...chatProps}/>
-        <MultiChatWindow {...chatProps} style={{height: '100%'}}/>
+        <PrettyChatWindow projectId={import.meta.env.VITE_REACT_PROJECT_ID} username={props.user.username} secret={props.user.secret} style={{height: "100%"}}/>
     </div>
   )
 }
